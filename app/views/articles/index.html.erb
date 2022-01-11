@@ -1,19 +1,36 @@
-<p>Article Listing Page</p>
+<p><strong>Article Listing Page</strong></p>
 
-<table>
+<style>
+
+.article_table, tr, td
+{
+    border: 1px solid #111;
+    border-radius:3px;
+}
+
+.article_table_cell 
+{
+    padding:5px 10px 5px 10px;
+}
+
+</style>
+
+<table class="article_table">
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Actions</th>
+            <th class = "article_table_cell">No.</th>
+            <th class = "article_table_cell">Title</th>
+            <th class = "article_table_cell">Description</th>
+            <th class = "article_table_cell">Actions</th>
         </tr>
     </thead>
     <tbody>
     <% @articles.each do |article|%>
         <tr>
-            <td><%=article.title%></td>
-            <td><%=article.description%></td>
-            <td>placeholder</td>
+            <td class = "article_table_cell"><%= article.id %></td>
+            <td class = "article_table_cell"><%= article.title %></td>
+            <td class = "article_table_cell"><%= article.description %></td>
+            <td class = "article_table_cell">placeholder</td>
         </tr>
     <% end %>
     </tbody>
