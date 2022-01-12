@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/product/product.css" rel="stylesheet">
     <title>AlphaBlog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <% flash.each do |name, msg|%>
-      <%= msg %>
-    <% end %>
+    <div class="container">
+    
+    <!-- renders partial _messages file into this file-->
+    <%= render 'layouts/messages' %>
 
-
+    <!--rest of the html codes from diff pages embeds in yeild-->
     <%= yield %>
+   </div>
+
+
+    
   </body>
 </html>

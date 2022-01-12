@@ -1,28 +1,7 @@
+
 <p><strong>Edit article</strong></p>
 
-<% if @article.errors.any? %>
-    <h2>Errors occured while inserting information in form</h2>
-    <ul>
-        <% @article.errors.full_messages.each do |msg|%>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render 'form' %>
 
-<%= form_with(model: @article, local: true) do |f| %>
+<%= link_to 'Cancel edit', articles_path %>
 
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-    </p>
-
-    <p>
-        <%= f.label :description%><br/>
-        <%= f.text_field :description%>
-    </p>
-
-    <p>
-        <%= f.submit%>
-    </p>
-
-<% end %>

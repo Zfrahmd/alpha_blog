@@ -1,29 +1,37 @@
-<p><strong>Create a new article</strong></p>
 
-<% if @article.errors.any? %>
-    <h2>Errors occured while inserting information in form</h2>
-    <ul>
-        <% @article.errors.full_messages.each do |msg|%>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
+    <p><strong>Create a new article</strong></p>
 
-<% end %>
+    <%= render 'form'%>
 
-<%= form_with scope: :article, url: articles_path, local: true do |f| %>
-    
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-    </p>
+    <!--<% if @article.errors.any? %>
+        <h2>Errors occured while inserting information in form</h2>
+        <ul>
+            <% @article.errors.full_messages.each do |msg|%>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
 
-    <p>
-        <%= f.label :description%><br/>
-        <%= f.text_field :description%>
-    </p>
+    <% end %>
 
-    <p>
-        <%= f.submit%>
-    </p>
+    <%= form_with scope: :article, url: articles_path, local: true do |f| %>
+        
+        <p>
+            <%= f.label :title %><br/>
+            <%= f.text_field :title %>
+        </p>
 
-<% end %>
+        <p>
+            <%= f.label :description%><br/>
+            <%= f.text_field :description%>
+        </p>
+
+        <p>
+            <%= f.submit%>
+        </p>
+
+    <% end %>-->
+
+    <%= link_to 'Return to articles', articles_path %>
+
+
+

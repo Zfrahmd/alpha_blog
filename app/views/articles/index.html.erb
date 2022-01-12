@@ -1,4 +1,3 @@
-<p><strong>Article Listing Page</strong></p>
 
 <style>
 
@@ -15,23 +14,33 @@
 
 </style>
 
-<table class="article_table">
-    <thead>
-        <tr>
-            <th class = "article_table_cell">No.</th>
-            <th class = "article_table_cell">Title</th>
-            <th class = "article_table_cell">Description</th>
-            <th class = "article_table_cell">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    <% @articles.each do |article|%>
-        <tr>
-            <td class = "article_table_cell"><%= article.id %></td>
-            <td class = "article_table_cell"><%= article.title %></td>
-            <td class = "article_table_cell"><%= article.description %></td>
-            <td class = "article_table_cell">placeholder</td>
-        </tr>
-    <% end %>
-    </tbody>
-</table>
+    <p><strong>Article Listing Page</strong></p>
+    
+    <table class="article_table">
+        <thead>
+            <tr>
+                <th class = "article_table_cell">No.</th>
+                <th class = "article_table_cell">Title</th>
+                <th class = "article_table_cell">Description</th>
+                <th colspan = "3" class = "article_table_cell">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @articles.each do |article|%>
+            <tr>
+                <td class = "article_table_cell"><%= article.id %></td>
+                <td class = "article_table_cell"><%= article.title %></td>
+                <td class = "article_table_cell"><%= article.description %></td>
+                <td class = "article_table_cell"><%= link_to 'View', article_path(article) %></td>
+                <td class = "article_table_cell"><%= link_to 'Edit', edit_article_path(article) %></td>
+                <!-- use this-->
+                <!--<td class = "article_table_cell"><%= link_to  'Delete', article_path(article.id), data: {"turbo-method": :delete} %></td>-->
+                <!--or-->
+                <td class = "article_table_cell"><%= link_to 'Remove', articles_delete_path(article.id), method: :delete%></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+
+    <br/>
+    <p><%= link_to 'Create a new Article', new_article_path %></p>
